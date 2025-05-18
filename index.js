@@ -29,6 +29,11 @@ let posts = [
   { id: uuidv4(), username: "aniket", content: "DSA is important" },
 ];
 
+app.get('/', (req, res) => {
+  res.redirect('/post');
+});
+
+
 app.get("/post", (req, res) => {
   res.render("index.ejs", { posts });
 });
