@@ -75,6 +75,4 @@ app.delete("/post/:id", (req, res) => {
   res.redirect("/post/");
 });
 
-app.listen(port, () => {
-  console.log("app is listening");
-});
+
