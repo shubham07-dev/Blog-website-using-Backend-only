@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>All Blog Posts</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <h1>Blog-Go</h1>
+
+    <% for(let post of posts) { %>
+        <div class="post">
+            <h3 class="user">@<%= post.username %>
+            </h3>
+
+            <% if (post.imagePath) { %>
+                <img src="<%= post.imagePath %>" alt="Post Image" width="300px" style="display: block; margin: auto; border-radius: 1.5rem;">
+                <% } %>
+
+                    <h4 class="cont">
+                        <%= post.content %>
+                    </h4>
+                    <a href="/post/<%= post.id %>">View</a>
+                    <a href="/post/<%= post.id %>/edit">Edit</a>
+                    <form method="POST" action="/post/<%= post.id %>?_method=DELETE">
+                        <button class="del">Delete</button>
+                    </form>
+        </div>
+        <% } %>
+
+            <div style="text-align:center; margin-top:2rem;">
+                <a href="/post/new" class="Create">➕ Create New Post</a>
+            </div>
+</body>
+
+</html>

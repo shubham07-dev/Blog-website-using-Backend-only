@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Your Post</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .edit-container {
+            width: 60%;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #fff4e6;
+            border: 2px solid #d6a56b;
+            border-radius: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .edit-container h2 {
+            text-align: center;
+            color: maroon;
+        }
+
+        .edit-container p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .edit-container textarea {
+            width: 100%;
+            font-size: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid #aaa;
+            resize: vertical;
+        }
+
+        .edit-container button {
+            margin-top: 1rem;
+            background-color: #d2691e;
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="edit-container">
+        <h2>Edit Your Post</h2>
+        <p><strong>Post ID:</strong> <%= post.id %></p>
+        <p><strong>Username:</strong> <%= post.username %></p>
+       <form method="POST" action="/post/<%= post.id %>?_method=PATCH" enctype="multipart/form-data">
+    <label>Update Content:</label><br>
+    <textarea rows="10" name="content"><%= post.content %></textarea><br><br>
+
+    <label>Upload New Image (optional):</label><br>
+    <input type="file" name="image"><br><br>
+
+    <% if (post.imagePath) { %>
+        <p>Current Image:</p>
+        <img src="<%= post.imagePath %>" alt="Post Image" width="200px">
+    <% } %>
+
+    <button>Update Post</button>
+</form>
+    </div>
+</body>
+</html>
