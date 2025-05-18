@@ -24,9 +24,9 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 
 let posts = [
-  { id: uuidv4(), username: "shubham shukla", content: "hello gyus" },
-  { id: uuidv4(), username: "aman", content: "I Love Coding" },
-  { id: uuidv4(), username: "aniket", content: "DSA is important" },
+  { id: uuidv4(), username: "shubham shukla", content: "Welcome To My Blog Web-Site " },
+  { id: uuidv4(), username: "aman", content: "This is my Blog." },
+  { id: uuidv4(), username: "aniket", content: "Coding, also known as computer programming, is the process of writing instructions that tell a computer what to do. These instructions are written in a programming language, which is a set of rules and symbols that computers understand. It's the foundation of software, applications, websites, and various other digital tools. " },
 ];
 
 app.get('/', (req, res) => {
